@@ -37,6 +37,23 @@ timer.ResetClock(); // Reset underlieing timer
 The internal timestamp is set to the current time on construction, so the first call to `GetTimeFloat()` or `GetTimeDouble()` returns the time elapsed since the object was created.
 Due to this it is good practice to call `ResetClock()` if time elapsed since DeltaTimer construction was too long.
 
+### Resetting the Clock
+
+It is good practice to call `ResetClock()` before starting main loop or when an extended ammount of time has elapsed since DeltaTimer construction
+
+```cpp
+DeltaTimer timer;
+
+// ...        (signifigant elapsed time)
+
+timer.ResetClock();
+while (running)
+{
+    float  dt = timer.GetTimeFloat();  // Get delta time since clock reset
+    // ...
+}
+```
+
 ### Getting Elapsed Time
 
 ```cpp
