@@ -31,7 +31,6 @@ while (running)
 
 ```cpp
 DeltaTimer timer;   // Timer starts immediately on construction
-timer.ResetClock(); // Reset underlieing timer
 ```
 
 The internal timestamp is set to the current time on construction, so the first call to `GetTimeFloat()` or `GetTimeDouble()` returns the time elapsed since the object was created.
