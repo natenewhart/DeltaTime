@@ -10,8 +10,10 @@ class DeltaTimer
 public:
 	DeltaTimer();
 
-	float  GetTimeFloat(); // Return seconds between last frame and current as float
-	double GetTimeDouble();  // Return seconds between last frame and current as double
+	void ResetClock(); // Set previous time to current chrono time
+
+	float  GetTimeFloat();  // Return seconds between last GetTime call and current as float
+	double GetTimeDouble(); // Return seconds between last GetTime call and current as double
 
 private:
 	template<typename T>
@@ -24,6 +26,11 @@ private:
 // -------------------------------- Inline Function Definitions --------------------------------
 
 inline DeltaTimer::DeltaTimer() : prevTime(std::chrono::high_resolution_clock::now()) {}
+
+inline void DeltaTimer::ResetClock()
+{
+	prevTime = std::chrono::high_resolution_clock::now();
+}
 
 template<typename T>
 T DeltaTimer::GetDeltaTime()
