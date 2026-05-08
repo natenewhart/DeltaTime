@@ -34,7 +34,6 @@ DeltaTimer timer;   // Timer starts immediately on construction
 ```
 
 The internal timestamp is set to the current time on construction, so the first call to `GetTimeFloat()` or `GetTimeDouble()` returns the time elapsed since the object was created.
-Due to this it is good practice to call `ResetClock()` if time elapsed since DeltaTimer construction was too long.
 
 ### Resetting the Clock
 
